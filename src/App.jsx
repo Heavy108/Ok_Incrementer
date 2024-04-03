@@ -31,7 +31,7 @@ function App() {
   return (
     <>
       <center>
-        <h1>OK INCREMENTER</h1>
+        <h1 className={style.head}>OK INCREMENTER</h1>
       </center>
 
       <div className={style.cen}>
