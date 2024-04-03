@@ -56,10 +56,10 @@ function App() {
         </div>
         {ShowHistory && (
           <div>
-            <h2>History:</h2>
-            <ul>
+            <h2 className={style.text}>History:</h2>
+            <ul className={style.text}>
               {historyToShow.map((entry, index) => (
-                <li key={index}>
+                <li className={style.text} key={index}>
                   {entry.count} - {entry.date}
                 </li>
               ))}
