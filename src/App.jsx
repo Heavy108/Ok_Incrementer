@@ -1,6 +1,7 @@
 import { useState } from "react";
 import style from "./App.module.css";
-import { saveHistory, loadHistory } from "./historyStorage";
+import { saveHistory, loadHistory } from "./assets/Components/historyStorage";
+import Confetti from "./assets/Components/Confetti";
 
 function App() {
   const [Counter, setCounter] = useState(0);
@@ -14,11 +15,12 @@ function App() {
   };
 
   const handleClick = () => {
-    setCounter(prevCounter => prevCounter + 1);
+    setCounter((prevCounter) => prevCounter + 1);
   };
 
   const handleSave = () => {
     addHistory();
+    
     setCounter(0);
   };
 
@@ -39,20 +41,19 @@ function App() {
           <button className={style.but} onClick={handleClick}>
             OK
           </button>
-          
         </div>
 
         <div className={style.row}>
-        <button className={style.ben} onClick={toggleHistory}>
+          <button className={style.ben} onClick={toggleHistory}>
             {ShowHistory ? "Hide History" : "Show History"}
           </button>
-       
+
           <h3 className={style.cunt}>Count: {Counter}</h3>
+          {Counter === 10 && <Confetti />}
+
           <button className={style.ben} onClick={handleSave}>
             SAVE
           </button>
-         
-          
         </div>
         {ShowHistory && (
           <div>
