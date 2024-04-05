@@ -6,15 +6,24 @@ function Confetti() {
     const jsConfetti = new JSConfetti();
     jsConfetti.addConfetti({
       confettiColors: [
-        '#ff0a54', '#ff477e', '#ff7096', '#ff85a1', '#fbb1bd', '#f9bec7',
+        "#08090a",
+        "#64c3fc",
+        "#587df3",
+        "#775df3",
+        "#e56984",
+        "#e94636",
+        "f5c44c",
+        "#2dab6b",
+        "yellow",
+        "orange",
+        "red",
+        
       ],
+      confettiRadius: 6,
+      confettiNumber: 500,
     });
-
-  
-    
   }, []);
 
-  return null; 
+  return null;
 }
-
 export default Confetti;
