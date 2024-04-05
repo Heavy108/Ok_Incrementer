@@ -49,7 +49,7 @@ function App() {
           </button>
 
           <h3 className={style.cunt}>Count: {Counter}</h3>
-          {Counter === 10 && <Confetti />}
+          {Counter%10 === 0 && <Confetti />}
 
           <button className={style.ben} onClick={handleSave}>
             SAVE
