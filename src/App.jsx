@@ -1,22 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import style from "./App.module.css";
 import { saveHistory, loadHistory } from "./assets/Components/historyStorage";
 import Confetti from "./assets/Components/Confetti";
-import IncrementAnimation from "./assets/Components/IncrementAnimation";
 
 function App() {
   const [Counter, setCounter] = useState(0);
   const [History, setHistory] = useState([]);
   const [ShowHistory, setShowHistory] = useState(false);
-  const [animationQueue, setAnimationQueue] = useState([]);
-
-  useEffect(() => {
-    if (animationQueue.length > 0) {
-      setShowIncrementAnimation(true);
-    } else {
-      setShowIncrementAnimation(false);
-    }
-  }, [animationQueue]);
 
   const addHistory = () => {
     const currentDate = new Date().toLocaleString();
@@ -26,16 +16,11 @@ function App() {
 
   const handleClick = () => {
     setCounter((prevCounter) => prevCounter + 1);
-    const newQueue = Array.from({ length: 10 }, (_, index) => index);
-    setAnimationQueue([...animationQueue, ...newQueue]);
-  };
-
-  const handleAnimationComplete = () => {
-    setAnimationQueue((prevQueue) => prevQueue.slice(5));
   };
 
   const handleSave = () => {
     addHistory();
+    
     setCounter(0);
   };
 
@@ -45,8 +30,6 @@ function App() {
 
   const historyToShow = ShowHistory ? loadHistory() : History;
 
-  const [showIncrementAnimation, setShowIncrementAnimation] = useState(false);
-
   return (
     <>
       <center>
@@ -54,13 +37,19 @@ function App() {
       </center>
 
       <div className={style.cen}>
+        <div>
+          <button className={style.but} onClick={handleClick}>
+            OK
+          </button>
+        </div>
+
         <div className={style.row}>
           <button className={style.ben} onClick={toggleHistory}>
             {ShowHistory ? "Hide History" : "Show History"}
           </button>
 
           <h3 className={style.cunt}>Count: {Counter}</h3>
-          {(Counter % 10 === 0 & Counter != 0) && <Confetti />}
+          {Counter%10 === 0 && <Confetti />}
 
           <button className={style.ben} onClick={handleSave}>
             SAVE
@@ -78,19 +67,6 @@ function App() {
             </ul>
           </div>
         )}
-
-        <div>
-          <button className={style.but} onClick={handleClick}>
-            OK
-          </button>
-        </div>
-
-        {animationQueue.map((index) => (
-          <IncrementAnimation
-            key={index}
-            onAnimationComplete={handleAnimationComplete}
-          />
-        ))}
       </div>
     </>
   );
