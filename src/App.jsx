@@ -3,6 +3,7 @@ import style from "./App.module.css";
 import { saveHistory, loadHistory } from "./assets/Components/historyStorage";
 import Confetti from "./assets/Components/Confetti";
 import IncrementAnimation from "./assets/Components/IncrementAnimation";
+import Background from "./assets/Components/Background";
 
 function App() {
   const [Counter, setCounter] = useState(0);
@@ -26,7 +27,7 @@ function App() {
 
   const handleClick = () => {
     setCounter((prevCounter) => prevCounter + 1);
-    const newQueue = Array.from({ length: 10 }, (_, index) => index);
+    const newQueue = Array.from({ length: 5 }, (_, index) => index);
     setAnimationQueue([...animationQueue, ...newQueue]);
   };
 
@@ -49,18 +50,32 @@ function App() {
 
   return (
     <>
+      <Background />
       <center>
         <h1 className={style.head}>OK INCREMENTER</h1>
       </center>
 
       <div className={style.cen}>
+        <h3 className={style.cunt}>Count: {Counter}</h3>
+        {(Counter % 10 === 0) & (Counter != 0) && <Confetti />}
+
+        <div>
+          <button className={style.but} onClick={handleClick}>
+            OK
+          </button>
+        </div>
+
+        {animationQueue.map((_, index) => (
+          <IncrementAnimation
+            key={index}
+            onAnimationComplete={handleAnimationComplete}
+          />
+        ))}
+
         <div className={style.row}>
           <button className={style.ben} onClick={toggleHistory}>
             {ShowHistory ? "Hide History" : "Show History"}
           </button>
-
-          <h3 className={style.cunt}>Count: {Counter}</h3>
-          {(Counter % 10 === 0 & Counter != 0) && <Confetti />}
 
           <button className={style.ben} onClick={handleSave}>
             SAVE
@@ -78,19 +93,6 @@ function App() {
             </ul>
           </div>
         )}
-
-        <div>
-          <button className={style.but} onClick={handleClick}>
-            OK
-          </button>
-        </div>
-
-        {animationQueue.map((index) => (
-          <IncrementAnimation
-            key={index}
-            onAnimationComplete={handleAnimationComplete}
-          />
-        ))}
       </div>
     </>
   );
