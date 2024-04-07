@@ -57,7 +57,7 @@ function App() {
 
       <div className={style.cen}>
         <h3 className={style.cunt}>Count: {Counter}</h3>
-        {(Counter % 10 === 0) & (Counter != 0) && <Confetti />}
+        {(Counter % 10 === 0) || (Counter != 0) && <Confetti />}
 
         <div>
           <button className={style.but} onClick={handleClick}>

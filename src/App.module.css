@@ -51,16 +51,41 @@
   border: 0;
   font-size: 16px;
   transition: all 150ms ease-in-out;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
 
   color: white;
   font-weight: bold;
-  background: linear-gradient(114.9deg, rgb(34, 34, 34) 8.3%, rgb(0, 40, 60) 41.6%, rgb(0, 143, 213) 93.4%);;
-  box-shadow: rgba(224, 212, 212, 0.2) 0 2px 8px 0,
-    inset 8px -8px 0px rgba(224, 212, 212, 0.1),
-    inset 0px -12px 0px rgba(234, 228, 228, 0.15);
+  background: #f00;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 128px;
+  height: 128px;
+  cursor: pointer;
+  top: 0;
+  border: 1px solid #B21522;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+  
+  color: rgba(255,255,255,0.9);
+  text-align: center;
+  white-space: pre;
+  background: -webkit-radial-gradient( 50% 50% , ellipse closest-side, rgba(255,255,255,0.2) 0, rgba(0,0,0,0) 100%), #C91826;
+  background: -moz-radial-gradient( 50% 50% , ellipse closest-side, rgba(255,255,255,0.2) 0, rgba(0,0,0,0) 100%), #C91826;
+  background: radial-gradient( 50% 50% , ellipse closest-side, rgba(255,255,255,0.2) 0, rgba(0,0,0,0) 100%), #C91826;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  -webkit-background-size: 158px 142px;
+  background-size: 158px 142px;
+  -webkit-box-shadow: 1px 16px 10px 5px rgba(0,0,0,0.2) , 0 14px 0 0 #000000 , 4px 8px 15px 4px rgba(0,0,0,0.4) , 5px 1px 5px 0 rgba(255,255,255,0.2) inset, 5px -4px 5px 0 rgba(255,255,255,0.2) inset, -2px 3px 6px 0 rgba(0,0,0,0.2) inset;
+  box-shadow: 1px 16px 10px 5px rgba(0,0,0,0.2) , 0 14px 0 0 #000000 , 4px 8px 15px 4px rgba(0,0,0,0.4) , 5px 1px 5px 0 rgba(255,255,255,0.2) inset, 5px -4px 5px 0 rgba(255,255,255,0.2) inset, -2px 3px 6px 0 rgba(0,0,0,0.2) inset;
+  text-shadow: 0 -1px 0 rgba(40,40,40,0.6) ;
+  -webkit-transition: all 40ms 0 cubic-bezier(0.6, -0.28, 0.735, 0.04);
+  -moz-transition: all 40ms 0 cubic-bezier(0.6, -0.28, 0.735, 0.04);
+  -o-transition: all 40ms 0 cubic-bezier(0.6, -0.28, 0.735, 0.04);
+  transition: all 40ms 0 cubic-bezier(0.6, -0.28, 0.735, 0.04);
 }
 
 .but:hover {
