@@ -1,10 +1,10 @@
-import sample from "./2.mp4"
+// import sample from "./2.mp4";
 import style from "./Background.module.css";
 function Background() {
   return (
     <div className={style.background_video}>
       <video autoPlay muted loop className={style.video}>
-        <source src={sample} type="video/mp4" />
+        {/* <source src={sample} type="video/mp4" /> */}
         Your browser does not support the video tag.
       </video>
     </div>

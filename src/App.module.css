@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+
+* {
+  font-family: "Silkscreen", "Arial";
+}
+
+
 .head {
   color: goldenrod;
 }
@@ -8,28 +15,29 @@
   flex-direction: column;
   align-items: center;
 }
+
 .cunt {
-  font-size: 50px;
-  margin: 70px;
+  font-size: 3rem;
   color: #ffffff;
 }
 
 .ben {
-  padding: 0;
-  width: 80px;
-  height: 80px;
-  display: inline-block;
+  height: 8rem;
+  width: 8rem;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 50%;
   margin: 36px;
   color: bisque;
   border: 4px solid #888888;
   outline: none;
   background-color: rgb(4, 53, 26);
-  border-radius: 50%;
   box-shadow: rgba(224, 212, 212, 0.2) 0 2px 8px 0,
     inset 0px -6px 0px rgba(224, 212, 212, 0.1),
     inset 0px -2px 0px rgba(234, 228, 228, 0.15);
   transition: 0.13s ease-in-out;
   cursor: pointer;
+
   &:active {
     box-shadow: none;
   }
@@ -46,42 +54,35 @@
 
 /* CSS */
 .but {
-  padding: 12px 26px;
   padding-bottom: 18px;
   border: 0;
-  font-size: 16px;
+  font-size: 4rem;
   transition: all 150ms ease-in-out;
-  width: 300px;
-  height: 300px;
+  width: 16rem;
+  height: 16rem;
   border-radius: 50%;
 
   color: white;
   font-weight: bold;
   background: #f00;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  width: 128px;
-  height: 128px;
   cursor: pointer;
   top: 0;
   border: 1px solid #B21522;
-  -webkit-border-radius: 100px;
-  border-radius: 100px;
-  
-  color: rgba(255,255,255,0.9);
+
+  color: rgba(255, 255, 255, 0.9);
   text-align: center;
   white-space: pre;
-  background: -webkit-radial-gradient( 50% 50% , ellipse closest-side, rgba(255,255,255,0.2) 0, rgba(0,0,0,0) 100%), #C91826;
-  background: -moz-radial-gradient( 50% 50% , ellipse closest-side, rgba(255,255,255,0.2) 0, rgba(0,0,0,0) 100%), #C91826;
-  background: radial-gradient( 50% 50% , ellipse closest-side, rgba(255,255,255,0.2) 0, rgba(0,0,0,0) 100%), #C91826;
+  background: -webkit-radial-gradient(50% 50%, ellipse closest-side, rgba(255, 255, 255, 0.2) 0, rgba(0, 0, 0, 0) 100%), #C91826;
+  background: -moz-radial-gradient(50% 50%, ellipse closest-side, rgba(255, 255, 255, 0.2) 0, rgba(0, 0, 0, 0) 100%), #C91826;
+  background: radial-gradient(50% 50%, ellipse closest-side, rgba(255, 255, 255, 0.2) 0, rgba(0, 0, 0, 0) 100%), #C91826;
   background-repeat: no-repeat;
   background-position: 0 100%;
   -webkit-background-size: 158px 142px;
   background-size: 158px 142px;
-  -webkit-box-shadow: 1px 16px 10px 5px rgba(0,0,0,0.2) , 0 14px 0 0 #000000 , 4px 8px 15px 4px rgba(0,0,0,0.4) , 5px 1px 5px 0 rgba(255,255,255,0.2) inset, 5px -4px 5px 0 rgba(255,255,255,0.2) inset, -2px 3px 6px 0 rgba(0,0,0,0.2) inset;
-  box-shadow: 1px 16px 10px 5px rgba(0,0,0,0.2) , 0 14px 0 0 #000000 , 4px 8px 15px 4px rgba(0,0,0,0.4) , 5px 1px 5px 0 rgba(255,255,255,0.2) inset, 5px -4px 5px 0 rgba(255,255,255,0.2) inset, -2px 3px 6px 0 rgba(0,0,0,0.2) inset;
-  text-shadow: 0 -1px 0 rgba(40,40,40,0.6) ;
+  -webkit-box-shadow: 1px 16px 10px 5px rgba(0, 0, 0, 0.2), 0 14px 0 0 #000000, 4px 8px 15px 4px rgba(0, 0, 0, 0.4), 5px 1px 5px 0 rgba(255, 255, 255, 0.2) inset, 5px -4px 5px 0 rgba(255, 255, 255, 0.2) inset, -2px 3px 6px 0 rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 1px 16px 10px 5px rgba(0, 0, 0, 0.2), 0 14px 0 0 #000000, 4px 8px 15px 4px rgba(0, 0, 0, 0.4), 5px 1px 5px 0 rgba(255, 255, 255, 0.2) inset, 5px -4px 5px 0 rgba(255, 255, 255, 0.2) inset, -2px 3px 6px 0 rgba(0, 0, 0, 0.2) inset;
+  text-shadow: 0 -1px 0 rgba(40, 40, 40, 0.6);
   -webkit-transition: all 40ms 0 cubic-bezier(0.6, -0.28, 0.735, 0.04);
   -moz-transition: all 40ms 0 cubic-bezier(0.6, -0.28, 0.735, 0.04);
   -o-transition: all 40ms 0 cubic-bezier(0.6, -0.28, 0.735, 0.04);
@@ -99,6 +100,7 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0 2px 6px 0,
     inset 0px -1px 0px rgba(0, 0, 0, 0.15);
 }
+
 .but:focus {
   outline: none;
 }
