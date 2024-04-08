@@ -10,6 +10,13 @@ function App() {
   const [History, setHistory] = useState([]);
   const [ShowHistory, setShowHistory] = useState(false);
   const [animationQueue, setAnimationQueue] = useState([]);
+  const [loadedHistory, setLoadedHistory] = useState([]);
+
+  useEffect(() => {
+    loadHistory()
+      .then(setLoadedHistory)
+      .catch(console.error);
+  }, []);
 
   useEffect(() => {
     if (animationQueue.length > 0) {
@@ -45,8 +52,7 @@ function App() {
     setShowHistory(!ShowHistory);
   };
 
-  const historyToShow = ShowHistory ? loadHistory() : History;
-
+  const historyToShow = ShowHistory ? loadedHistory : History;
   const [showIncrementAnimation, setShowIncrementAnimation] = useState(false);
 
   return (
@@ -55,29 +61,21 @@ function App() {
       <center>
         <h1 className={style.head}>OK OK OK OK OK </h1>
       </center>
-
       <div className={style.cen}>
         <h3 className={style.cunt}>Count: {Counter}</h3>
-        {Counter % 10 === 0 && Counter != 0 && <Confetti />}
-
+        {Counter % 10 === 0 && Counter !== 0 && <Confetti />}
         <div>
           <button className={style.but} onClick={handleClick}>
             OK
           </button>
         </div>
-
         {animationQueue.map((_, index) => (
-          <IncrementAnimation
-            key={index}
-            onAnimationComplete={handleAnimationComplete}
-          />
+          <IncrementAnimation key={index} onAnimationComplete={handleAnimationComplete} />
         ))}
-
         <div className={style.row}>
           <button className={style.ben} onClick={toggleHistory}>
             {ShowHistory ? "Hide History" : "Show History"}
           </button>
-
           <button className={style.ben} onClick={handleSave}>
             SAVE
           </button>
