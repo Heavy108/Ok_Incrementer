@@ -15,8 +15,10 @@ firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
 export const saveHistory = (history) => {
-  database.ref('histories').set(history);
+  const newHistoryRef = database.ref('histories').push(); // Generate a unique key for the new history entry
+  newHistoryRef.set(history);
 };
+
 
 export const loadHistory = () => {
   return new Promise((resolve, reject) => {
