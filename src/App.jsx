@@ -26,6 +26,7 @@ function App() {
   };
 
   const handleClick = () => {
+    navigator.vibrate(100);
     setCounter((prevCounter) => prevCounter + 1);
     const newQueue = Array.from({ length: 5 }, (_, index) => index);
     setAnimationQueue([...animationQueue, ...newQueue]);
@@ -50,14 +51,14 @@ function App() {
 
   return (
     <>
-      <Background />
+      {/* <Background /> */}
       <center>
-        <h1 className={style.head}>OK INCREMENTER</h1>
+        <h1 className={style.head}>OK OK OK OK OK </h1>
       </center>
 
       <div className={style.cen}>
         <h3 className={style.cunt}>Count: {Counter}</h3>
-        {(Counter % 10 === 0) && (Counter != 0) && <Confetti />}
+        {Counter % 10 === 0 && Counter != 0 && <Confetti />}
 
         <div>
           <button className={style.but} onClick={handleClick}>
