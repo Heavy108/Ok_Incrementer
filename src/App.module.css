@@ -1,12 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
 
 * {
   font-family: "Silkscreen", "Arial";
+  -webkit-tap-highlight-color: transparent;
 }
 
-
 .head {
-  color: goldenrod;
+  position: relative;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 2em;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, goldenrod, #fff, goldenrod);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
 }
 
 .cen {
@@ -68,20 +88,46 @@
   box-sizing: border-box;
   cursor: pointer;
   top: 0;
-  border: 1px solid #B21522;
+  border: 1px solid #b21522;
 
   color: rgba(255, 255, 255, 0.9);
   text-align: center;
   white-space: pre;
-  background: -webkit-radial-gradient(50% 50%, ellipse closest-side, rgba(255, 255, 255, 0.2) 0, rgba(0, 0, 0, 0) 100%), #C91826;
-  background: -moz-radial-gradient(50% 50%, ellipse closest-side, rgba(255, 255, 255, 0.2) 0, rgba(0, 0, 0, 0) 100%), #C91826;
-  background: radial-gradient(50% 50%, ellipse closest-side, rgba(255, 255, 255, 0.2) 0, rgba(0, 0, 0, 0) 100%), #C91826;
+  background: -webkit-radial-gradient(
+      50% 50%,
+      ellipse closest-side,
+      rgba(255, 255, 255, 0.2) 0,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    #c91826;
+  background: -moz-radial-gradient(
+      50% 50%,
+      ellipse closest-side,
+      rgba(255, 255, 255, 0.2) 0,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    #c91826;
+  background: radial-gradient(
+      50% 50%,
+      ellipse closest-side,
+      rgba(255, 255, 255, 0.2) 0,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    #c91826;
   background-repeat: no-repeat;
   background-position: 0 100%;
   -webkit-background-size: 158px 142px;
   background-size: 158px 142px;
-  -webkit-box-shadow: 1px 16px 10px 5px rgba(0, 0, 0, 0.2), 0 14px 0 0 #000000, 4px 8px 15px 4px rgba(0, 0, 0, 0.4), 5px 1px 5px 0 rgba(255, 255, 255, 0.2) inset, 5px -4px 5px 0 rgba(255, 255, 255, 0.2) inset, -2px 3px 6px 0 rgba(0, 0, 0, 0.2) inset;
-  box-shadow: 1px 16px 10px 5px rgba(0, 0, 0, 0.2), 0 14px 0 0 #000000, 4px 8px 15px 4px rgba(0, 0, 0, 0.4), 5px 1px 5px 0 rgba(255, 255, 255, 0.2) inset, 5px -4px 5px 0 rgba(255, 255, 255, 0.2) inset, -2px 3px 6px 0 rgba(0, 0, 0, 0.2) inset;
+  -webkit-box-shadow: 1px 16px 10px 5px rgba(0, 0, 0, 0.2), 0 14px 0 0 #000000,
+    4px 8px 15px 4px rgba(0, 0, 0, 0.4),
+    5px 1px 5px 0 rgba(255, 255, 255, 0.2) inset,
+    5px -4px 5px 0 rgba(255, 255, 255, 0.2) inset,
+    -2px 3px 6px 0 rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 1px 16px 10px 5px rgba(0, 0, 0, 0.2), 0 14px 0 0 #000000,
+    4px 8px 15px 4px rgba(0, 0, 0, 0.4),
+    5px 1px 5px 0 rgba(255, 255, 255, 0.2) inset,
+    5px -4px 5px 0 rgba(255, 255, 255, 0.2) inset,
+    -2px 3px 6px 0 rgba(0, 0, 0, 0.2) inset;
   text-shadow: 0 -1px 0 rgba(40, 40, 40, 0.6);
   -webkit-transition: all 40ms 0 cubic-bezier(0.6, -0.28, 0.735, 0.04);
   -moz-transition: all 40ms 0 cubic-bezier(0.6, -0.28, 0.735, 0.04);
