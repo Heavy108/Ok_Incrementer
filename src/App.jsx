@@ -67,7 +67,7 @@ function App() {
           <button
             className={style.but}
             onClick={handleClick}
-            onTouchStart={handleClick}
+            
           >
             OK
           </button>
