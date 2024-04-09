@@ -24,7 +24,14 @@ export const loadHistory = () => {
   return new Promise((resolve, reject) => {
     database.ref('histories').once('value', (snapshot) => {
       if (snapshot.exists()) {
-        resolve(snapshot.val());
+        const historyData = snapshot.val();
+        // Convert object to an array of objects
+        const historyArray = Object.keys(historyData).map(key => ({
+          id: key,
+          count: historyData[key].count,
+          date: historyData[key].date
+        }));
+        resolve(historyArray);
       } else {
         resolve([]);
       }

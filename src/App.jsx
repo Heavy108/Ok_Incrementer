@@ -13,9 +13,7 @@ function App() {
   const [loadedHistory, setLoadedHistory] = useState([]);
 
   useEffect(() => {
-    loadHistory()
-      .then(setLoadedHistory)
-      .catch(console.error);
+    loadHistory().then(setLoadedHistory).catch(console.error);
   }, []);
 
   useEffect(() => {
@@ -28,8 +26,9 @@ function App() {
 
   const addHistory = () => {
     const currentDate = new Date().toLocaleString();
-    setHistory([...History, { count: Counter, date: currentDate }]);
-    saveHistory([...History, { count: Counter, date: currentDate }]);
+    const newHistory = { count: Counter, date: currentDate };
+    setHistory([...History, newHistory]);
+    saveHistory(newHistory);
   };
 
   const handleClick = () => {
@@ -57,7 +56,7 @@ function App() {
 
   return (
     <>
-      {/* <Background /> */}
+      <Background />
       <center>
         <h1 className={style.head}>OK OK OK OK OK </h1>
       </center>
@@ -65,12 +64,19 @@ function App() {
         <h3 className={style.cunt}>Count: {Counter}</h3>
         {Counter % 10 === 0 && Counter !== 0 && <Confetti />}
         <div>
-          <button className={style.but} onClick={handleClick}>
+          <button
+            className={style.but}
+            onClick={handleClick}
+            onTouchStart={handleClick}
+          >
             OK
           </button>
         </div>
         {animationQueue.map((_, index) => (
-          <IncrementAnimation key={index} onAnimationComplete={handleAnimationComplete} />
+          <IncrementAnimation
+            key={index}
+            onAnimationComplete={handleAnimationComplete}
+          />
         ))}
         <div className={style.row}>
           <button className={style.ben} onClick={toggleHistory}>
@@ -84,8 +90,8 @@ function App() {
           <div>
             <h2 className={style.text}>History:</h2>
             <ul className={style.text}>
-              {historyToShow.map((entry, index) => (
-                <li className={style.text} key={index}>
+              {historyToShow.map((entry) => (
+                <li className={style.text} key={entry.id}>
                   {entry.count} - {entry.date}
                 </li>
               ))}
