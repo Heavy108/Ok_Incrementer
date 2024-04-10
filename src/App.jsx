@@ -72,8 +72,7 @@ function App() {
         addHistory();
         setCount(0);
     };
-
-    const toggleHistory = () => {
+    const handleHistory = () => {
         setShowHistory(!ShowHistory);
     };
 
@@ -193,24 +192,23 @@ function App() {
                         justifyContent: "space-around",
                     }}
                 >
-                    {/* <button className={style.ben} onClick={toggleHistory}>
-                        {ShowHistory ? "Hide History" : "Show History"}
-                    </button> */}
                     <Button
-                        onClick={onOpen}
+                        onClick={() => {
+                            onOpen();
+                            handleHistory();
+                        }}
                         leftIcon={<RepeatClockIcon />}
                         colorScheme="blue"
                         variant="solid"
                     >
                         History
                     </Button>
-                    {/* <button className={style.ben} onClick={handleSave}>
-                        SAVE
-                    </button> */}
+
                     <Button
                         leftIcon={<AddIcon />}
                         colorScheme="blue"
                         variant="solid"
+                        onClick={handleSave}
                     >
                         Save
                     </Button>
@@ -221,7 +219,20 @@ function App() {
                 <ModalContent>
                     <ModalHeader>History</ModalHeader>
                     <ModalCloseButton />
-                    <ModalBody>We all have a past.</ModalBody>
+                    <ModalBody>
+                        {" "}
+                        <>
+                            {ShowHistory && (
+                                <ul>
+                                    {historyToShow.map((entry, index) => (
+                                        <li key={index}>
+                                            {entry.count} - {entry.date}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </>
+                    </ModalBody>
 
                     <ModalFooter>
                         <Button colorScheme="blue" mr={3} onClick={onClose}>
