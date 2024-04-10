@@ -10,7 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.1.1",
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "firebase": "^10.6.0",
+    "framer-motion": "^11.0.27",
     "js-confetti": "^0.12.0",
     "nanoid": "^5.0.6",
     "react": "^18.2.0",
