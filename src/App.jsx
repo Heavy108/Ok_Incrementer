@@ -4,7 +4,17 @@ import { saveHistory, loadHistory } from "./js/historyStorage";
 import Confetti from "./components/Confetti";
 import IncrementAnimation from "./components/IncrementAnimation";
 import Background from "./components/Background";
-import { Button } from "@chakra-ui/react";
+import {
+    Button,
+    useDisclosure,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+} from "@chakra-ui/react";
 import { AddIcon, RepeatClockIcon } from "@chakra-ui/icons";
 import OKSticker from "./assets/ok_sticker.png";
 
@@ -16,6 +26,8 @@ function App() {
     const [ShowHistory, setShowHistory] = useState(false); // Default to show history
     const [animationQueue, setAnimationQueue] = useState([]);
     const [loadedHistory, setLoadedHistory] = useState([]);
+
+    const { isOpen, onOpen, onClose } = useDisclosure(); // Modal stuff
 
     useEffect(() => {
         const timeoutID = setTimeout(() => {
@@ -185,6 +197,7 @@ function App() {
                         {ShowHistory ? "Hide History" : "Show History"}
                     </button> */}
                     <Button
+                        onClick={onOpen}
                         leftIcon={<RepeatClockIcon />}
                         colorScheme="blue"
                         variant="solid"
@@ -203,6 +216,20 @@ function App() {
                     </Button>
                 </div>
             </div>
+            <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader>History</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>We all have a past.</ModalBody>
+
+                    <ModalFooter>
+                        <Button colorScheme="blue" mr={3} onClick={onClose}>
+                            Close
+                        </Button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
         </>
     );
 }
