@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import style from "./App.module.css";
-import { saveHistory, loadHistory } from "./assets/Components/historyStorage";
-import Confetti from "./assets/Components/Confetti";
-import IncrementAnimation from "./assets/Components/IncrementAnimation";
-import Background from "./assets/Components/Background";
+import style from "./styles/App.module.css";
+import { saveHistory, loadHistory } from "./components/historyStorage";
+import Confetti from "./components/Confetti";
+import IncrementAnimation from "./components/IncrementAnimation";
+import Background from "./components/Background";
 
 function App() {
   const [Counter, setCounter] = useState(0);
@@ -33,6 +33,9 @@ function App() {
 
   const handleClick = () => {
     navigator.vibrate(100);
+
+    // Change the color to Green for a few moments
+
     setCounter((prevCounter) => prevCounter + 1);
     const newQueue = Array.from({ length: 5 }, (_, index) => index);
     setAnimationQueue([...animationQueue, ...newQueue]);
@@ -82,6 +85,7 @@ function App() {
           <button
             className={style.but}
             onClick={handleClick}
+            
           >
             OK
           </button>

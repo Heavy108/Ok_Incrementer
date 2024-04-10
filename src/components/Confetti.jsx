@@ -17,8 +17,6 @@ function Confetti() {
         "yellow",
         "orange",
         "red",
-
-        
       ],
       confettiRadius: 6,
       confettiNumber: 500,

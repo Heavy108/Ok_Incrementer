@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import style from "./IncrementAnimation.module.css";
-import bubbleImage from "../headshot.png"; 
+import style from "../styles/IncrementAnimation.module.css";
+import bubbleImage from "../assets/headbubble.png";
 
 const IncrementAnimation = ({ onAnimationComplete }) => {
   const [visible, setVisible] = useState(true);
@@ -14,9 +14,7 @@ const IncrementAnimation = ({ onAnimationComplete }) => {
     <>
       {visible && (
         <div className={style.bubble} onAnimationEnd={onAnimationEnd}>
-          <div className={style.bubbleContent}>
-            <img src={bubbleImage} alt="Bubble" className={style.bubbleImage} />
-          </div>
+          <img className={style.image} src={bubbleImage} alt="Bubble" />
         </div>
       )}
     </>
