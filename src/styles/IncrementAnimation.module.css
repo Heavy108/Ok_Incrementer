@@ -1,0 +1,23 @@
+.bubble {
+  position: absolute;
+  top: 40%;
+  left: 42.5%;
+  /* transform: translate(-50%, -50%); */
+  animation: floatUp 3s ease-out forwards;
+}
+
+.image {
+  height: 4rem;
+  width: auto;
+}
+
+
+@keyframes floatUp {
+  from {
+    transform: translate(0vw, 0dvh);
+  }
+
+  to {
+    transform: translate(0vw, -50dvh);
+  }
+}
