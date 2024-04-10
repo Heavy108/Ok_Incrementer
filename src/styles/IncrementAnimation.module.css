@@ -3,7 +3,7 @@
   top: 40%;
   left: 42.5%;
   /* transform: translate(-50%, -50%); */
-  animation: floatUp 3s ease-out forwards;
+  animation: floatUp 5s ease-out forwards;
 }
 
 .image {
