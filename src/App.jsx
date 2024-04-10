@@ -8,7 +8,7 @@ import Background from "./assets/Components/Background";
 function App() {
   const [Counter, setCounter] = useState(0);
   const [History, setHistory] = useState([]);
-  const [ShowHistory, setShowHistory] = useState(false);
+  const [ShowHistory, setShowHistory] = useState(true); // Default to show history
   const [animationQueue, setAnimationQueue] = useState([]);
   const [loadedHistory, setLoadedHistory] = useState([]);
 
@@ -51,7 +51,8 @@ function App() {
     setShowHistory(!ShowHistory);
   };
 
-  const historyToShow = ShowHistory ? loadedHistory : History;
+  const historyToShow = ShowHistory ? loadedHistory.concat(History) : []; // Combine loaded and current history
+
   const [showIncrementAnimation, setShowIncrementAnimation] = useState(false);
 
   return (
@@ -61,13 +62,26 @@ function App() {
         <h1 className={style.head}>OK OK OK OK OK </h1>
       </center>
       <div className={style.cen}>
+        {ShowHistory && (
+          <div className={style.history}>
+            <div>
+              <h2 className={style.text}>History</h2>
+            </div>
+            <ul className={style.text}>
+              {historyToShow.map((entry) => (
+                <li className={style.text} key={entry.id}>
+                  {entry.count} - {entry.date}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         <h3 className={style.cunt}>Count: {Counter}</h3>
         {Counter % 10 === 0 && Counter !== 0 && <Confetti />}
         <div>
           <button
             className={style.but}
             onClick={handleClick}
-            
           >
             OK
           </button>
@@ -86,18 +100,6 @@ function App() {
             SAVE
           </button>
         </div>
-        {ShowHistory && (
-          <div>
-            <h2 className={style.text}>History:</h2>
-            <ul className={style.text}>
-              {historyToShow.map((entry) => (
-                <li className={style.text} key={entry.id}>
-                  {entry.count} - {entry.date}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
       </div>
     </>
   );
