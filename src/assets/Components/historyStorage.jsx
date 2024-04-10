@@ -15,7 +15,7 @@ firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
 export const saveHistory = (history) => {
-  const newHistoryRef = database.ref('histories').push(); // Generate a unique key for the new history entry
+  const newHistoryRef = database.ref('histories').push(); 
   newHistoryRef.set(history);
 };
 
@@ -25,7 +25,7 @@ export const loadHistory = () => {
     database.ref('histories').once('value', (snapshot) => {
       if (snapshot.exists()) {
         const historyData = snapshot.val();
-        // Convert object to an array of objects
+        
         const historyArray = Object.keys(historyData).map(key => ({
           id: key,
           count: historyData[key].count,
