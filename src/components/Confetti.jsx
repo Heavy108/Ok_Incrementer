@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import JSConfetti from "js-confetti";
 
 function Confetti() {
@@ -19,7 +19,7 @@ function Confetti() {
         "red",
       ],
       confettiRadius: 6,
-      confettiNumber: 500,
+      confettiNumber: 200,
     });
   }, []);
 

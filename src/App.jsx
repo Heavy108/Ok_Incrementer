@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import style from "./styles/App.module.css";
-import { saveHistory, loadHistory } from "./components/historyStorage";
+import { saveHistory, loadHistory } from "./js/historyStorage";
 import Confetti from "./components/Confetti";
 import IncrementAnimation from "./components/IncrementAnimation";
 import Background from "./components/Background";
@@ -82,11 +82,7 @@ function App() {
         <h3 className={style.cunt}>Count: {Counter}</h3>
         {Counter % 10 === 0 && Counter !== 0 && <Confetti />}
         <div>
-          <button
-            className={style.but}
-            onClick={handleClick}
-            
-          >
+          <button className={style.but} onClick={handleClick}>
             OK
           </button>
         </div>
