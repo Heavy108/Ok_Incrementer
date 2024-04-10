@@ -1,7 +1,0 @@
-Things to do;
-1. Make bg remote  
-2.
-3.
-4. Fix touch boxing
-5. Add realtime db for syncing across devices 
-    and sessions
