@@ -31,7 +31,6 @@ function App() {
     const { isOpen, onOpen, onClose } = useDisclosure(); // Modal stuff
     const [currentIndex, setCurrentIndex] = useState(0); //BackgroundIndex
     const [showChart, setShowChart] = useState(false); //chart stuff
-    
 
     useEffect(() => {
         const timeoutID = setTimeout(() => {
@@ -65,7 +64,7 @@ function App() {
         setShowHistory(false);
     };
     const handleBgClick = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % 4);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % 5);
         <Background currentIndex />;
     };
 
@@ -89,11 +88,10 @@ function App() {
         setShowChart(false);
     };
     const handleCloseModal = () => {
-      onClose();
-      setShowHistory(false); // Reset showHistory when modal is closed
-      setShowChart(false); // Reset showChart when modal is closed
-  };
-    
+        onClose();
+        setShowHistory(false); // Reset showHistory when modal is closed
+        setShowChart(false); // Reset showChart when modal is closed
+    };
 
     const historyToShow = ShowHistory ? loadedHistory.concat(History) : []; // Combine loaded and current history
     const historyToChart = showChart ? loadedHistory.concat(History) : [];
@@ -243,7 +241,7 @@ function App() {
             <Modal isOpen={isOpen} onClose={handleCloseModal}>
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>{showChart ? 'Chart' : 'History'}</ModalHeader>
+                    <ModalHeader>{showChart ? "Chart" : "History"}</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
                         <>
@@ -263,9 +261,7 @@ function App() {
                         </>
                     </ModalBody>
 
-                    <ModalFooter>
-                       
-                    </ModalFooter>
+                    <ModalFooter></ModalFooter>
                 </ModalContent>
             </Modal>
         </>
