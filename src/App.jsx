@@ -17,6 +17,7 @@ import {
 } from "@chakra-ui/react";
 import { AddIcon, RepeatClockIcon } from "@chakra-ui/icons";
 import OKSticker from "./assets/ok_sticker.png";
+import HistoryChart from "./components/HistoryChart";
 
 function App() {
     const [count, setCount] = useState(0); // The initial OK count
@@ -28,6 +29,9 @@ function App() {
     const [loadedHistory, setLoadedHistory] = useState([]);
 
     const { isOpen, onOpen, onClose } = useDisclosure(); // Modal stuff
+    const [currentIndex, setCurrentIndex] = useState(0); //BackgroundIndex
+    const [showChart, setShowChart] = useState(false); //chart stuff
+    
 
     useEffect(() => {
         const timeoutID = setTimeout(() => {
@@ -56,6 +60,14 @@ function App() {
             setShowIncrementAnimation(false);
         }
     }, [animationQueue]);
+    const handleChartClick = () => {
+        setShowChart(!showChart);
+        setShowHistory(false);
+    };
+    const handleBgClick = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % 4);
+        <Background currentIndex />;
+    };
 
     const addHistory = () => {
         const currentDate = new Date().toLocaleString();
@@ -74,15 +86,23 @@ function App() {
     };
     const handleHistory = () => {
         setShowHistory(!ShowHistory);
+        setShowChart(false);
     };
+    const handleCloseModal = () => {
+      onClose();
+      setShowHistory(false); // Reset showHistory when modal is closed
+      setShowChart(false); // Reset showChart when modal is closed
+  };
+    
 
     const historyToShow = ShowHistory ? loadedHistory.concat(History) : []; // Combine loaded and current history
+    const historyToChart = showChart ? loadedHistory.concat(History) : [];
 
     const [showIncrementAnimation, setShowIncrementAnimation] = useState(false);
 
     return (
         <>
-            <Background />
+            <Background currentIndex={currentIndex} />
             <div
                 style={{
                     padding: "1rem",
@@ -102,13 +122,19 @@ function App() {
                     leftIcon={<RepeatClockIcon />}
                     colorScheme="purple"
                     variant="solid"
+                    onClick={() => {
+                        onOpen();
+                        handleChartClick();
+                    }}
                 >
                     Chart
                 </Button>
+
                 <Button
                     leftIcon={<RepeatClockIcon />}
                     colorScheme="yellow"
                     variant="solid"
+                    onClick={handleBgClick}
                 >
                     BG
                 </Button>
@@ -214,13 +240,12 @@ function App() {
                     </Button>
                 </div>
             </div>
-            <Modal isOpen={isOpen} onClose={onClose}>
+            <Modal isOpen={isOpen} onClose={handleCloseModal}>
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>History</ModalHeader>
+                    <ModalHeader>{showChart ? 'Chart' : 'History'}</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        {" "}
                         <>
                             {ShowHistory && (
                                 <ul>
@@ -231,13 +256,15 @@ function App() {
                                     ))}
                                 </ul>
                             )}
+
+                            {showChart && (
+                                <HistoryChart history={historyToChart} />
+                            )}
                         </>
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button colorScheme="blue" mr={3} onClick={onClose}>
-                            Close
-                        </Button>
+                       
                     </ModalFooter>
                 </ModalContent>
             </Modal>
