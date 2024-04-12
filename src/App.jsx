@@ -18,6 +18,8 @@ import {
 import { AddIcon, RepeatClockIcon } from "@chakra-ui/icons";
 import OKSticker from "./assets/ok_sticker.png";
 import HistoryChart from "./components/HistoryChart";
+import { ImStatsDots } from "react-icons/im";
+import { FaAffiliatetheme } from "react-icons/fa";
 
 function App() {
     const [count, setCount] = useState(0); // The initial OK count
@@ -117,7 +119,7 @@ function App() {
                     alt="OK"
                 />
                 <Button
-                    leftIcon={<RepeatClockIcon />}
+                    leftIcon={<ImStatsDots />}
                     colorScheme="purple"
                     variant="solid"
                     onClick={() => {
@@ -129,7 +131,7 @@ function App() {
                 </Button>
 
                 <Button
-                    leftIcon={<RepeatClockIcon />}
+                    leftIcon={<FaAffiliatetheme />}
                     colorScheme="yellow"
                     variant="solid"
                     onClick={handleBgClick}

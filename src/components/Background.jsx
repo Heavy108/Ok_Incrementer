@@ -8,7 +8,7 @@ import styles from "../styles/Background.module.css";
 
 
 function Background({currentIndex}) {
-    const backgroundImages = [girlStanding, suzume, elf, levi2,girl];
+    const backgroundImages = [girlStanding,  elf,suzume, levi2,girl];
       return (
         <div className={styles.background_video}>
             <img
